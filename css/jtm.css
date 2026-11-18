@@ -1,0 +1,429 @@
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--jtm-focus);
+  outline-offset: 2px;
+}
+
+a {
+  color: #904018;
+}
+
+a:hover {
+  color: var(--jtm-orange);
+}
+
+::selection {
+  background: #f4c9a3;
+  color: var(--jtm-ink);
+}
+
+/* =========================================
+   Header and navigation
+   ========================================= */
+
+#top_section {
+  background: var(--jtm-brown);
+  color: #fff0dc;
+}
+
+#top_section a,
+#top_section .welcome {
+  color: #fff0dc;
+}
+
+#top_section a:hover {
+  color: #ffffff;
+}
+
+#header {
+  background: var(--jtm-bg);
+  border-color: var(--jtm-border);
+}
+
+#header .forumtitle {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+}
+
+#header .forumtitle a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 100px;
+  padding-left: 105px;
+
+  background: url("../images/jtm-logo.png") no-repeat left center / 90px 90px;
+
+  color: var(--jtm-brown);
+  text-decoration: none;
+}
+
+/* Avoid showing the mascot twice when SMF
+   has a separate logo configured. */
+
+#header .forumtitle a:has(img) {
+  padding-left: 0;
+  background-image: none;
+}
+
+#header .forumtitle img {
+  max-height: 95px;
+  width: auto;
+}
+
+#header #siteslogan {
+  color: var(--jtm-muted);
+}
+
+#header #smflogo {
+  opacity: 0.7;
+}
+
+#wrapper {
+  background: transparent;
+}
+
+#upper_section,
+#inner_section {
+  background-color: var(--jtm-paper);
+  border-color: var(--jtm-border);
+}
+
+/* Main navigation */
+
+#main_menu,
+#main_menu .dropmenu {
+  background: var(--jtm-brown);
+}
+
+.dropmenu li a,
+#main_menu .dropmenu li a {
+  color: #fff0dc;
+}
+
+.dropmenu li a:hover,
+.dropmenu li a.active,
+.dropmenu li a:focus,
+.dropmenu li:hover > a {
+  background-color: var(--jtm-brown-mid);
+  color: #ffffff;
+}
+
+.dropmenu ul {
+  background: var(--jtm-paper);
+  border-color: var(--jtm-border);
+}
+
+.dropmenu ul li a {
+  color: var(--jtm-ink) !important;
+}
+
+.dropmenu ul li a:hover {
+  background: var(--jtm-soft);
+  color: var(--jtm-brown) !important;
+}
+
+/* Breadcrumbs */
+
+.navigate_section,
+.navigate_section ul {
+  background: transparent;
+  color: var(--jtm-muted);
+}
+
+.navigate_section a {
+  color: #904018;
+}
+
+/* =========================================
+   Categories and board listings
+   ========================================= */
+
+.cat_bar,
+.catbg {
+  background: var(--jtm-brown-mid);
+  color: #fff5e8;
+  border-color: var(--jtm-brown-mid);
+}
+
+.catbg a,
+.cat_bar a {
+  color: #fff5e8;
+}
+
+.catbg a:hover,
+.cat_bar a:hover {
+  color: #ffffff;
+}
+
+.title_bar,
+.titlebg {
+  background: var(--jtm-soft);
+  color: var(--jtm-brown);
+  border-color: var(--jtm-border);
+}
+
+.titlebg a {
+  color: var(--jtm-brown);
+}
+
+.windowbg,
+.windowbg2,
+.roundframe,
+.information,
+.boardindex_table,
+.topic_table {
+  background: var(--jtm-paper);
+  color: var(--jtm-ink);
+  border-color: var(--jtm-border);
+}
+
+.windowbg:nth-child(even) {
+  background: #fcf7ee;
+}
+
+.boardindex_table td,
+.topic_table td,
+.table_grid th,
+.table_grid td {
+  border-color: var(--jtm-border);
+}
+
+.boardindex_table .board_name a,
+.topic_table .subject a {
+  color: var(--jtm-brown-mid);
+  font-weight: 700;
+}
+
+.boardindex_table .board_description,
+.smalltext,
+.description {
+  color: var(--jtm-muted);
+}
+
+.table_grid thead tr,
+.table_grid th {
+  background: var(--jtm-soft);
+  color: var(--jtm-brown);
+}
+
+/* =========================================
+   Buttons, pagination and forms
+   ========================================= */
+
+.button,
+a.button,
+input.button,
+button.button,
+.button_submit {
+  background: var(--jtm-orange);
+  color: #ffffff;
+  border: 1px solid #a64b1c;
+  border-radius: 5px;
+  box-shadow: none;
+  text-shadow: none;
+  font-weight: 600;
+}
+
+.button:hover,
+a.button:hover,
+input.button:hover,
+button.button:hover,
+.button_submit:hover {
+  background: #a94c1c;
+  color: #ffffff;
+  border-color: #8a3c17;
+}
+
+.current_page {
+  color: var(--jtm-orange);
+}
+
+.pagesection {
+  margin-block: 0.65rem;
+}
+
+/* =========================================
+   Topic display and posts
+   ========================================= */
+
+#display_head {
+  background: var(--jtm-soft);
+  border: 1px solid var(--jtm-border);
+  border-radius: 6px;
+}
+
+#display_head .display_title {
+  color: var(--jtm-brown);
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+}
+
+#forumposts .windowbg,
+#forumposts .windowbg2 {
+  border: 1px solid var(--jtm-border);
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+#forumposts .post_wrapper {
+  background: transparent;
+}
+
+#forumposts .poster {
+  border-color: var(--jtm-border);
+}
+
+#forumposts .poster h4,
+#forumposts .poster h4 a {
+  color: var(--jtm-brown);
+}
+
+#forumposts .postarea {
+  color: var(--jtm-ink);
+  line-height: 1.6;
+}
+
+#forumposts .postarea .keyinfo,
+#forumposts .postarea .post {
+  border-color: var(--jtm-border);
+}
+
+#forumposts .postarea .inner {
+  overflow-wrap: anywhere;
+}
+
+#forumposts .postarea .post {
+  font-size: 1rem;
+}
+
+#forumposts .postarea .smalltext,
+#forumposts .poster .smalltext {
+  color: var(--jtm-muted);
+}
+
+/* =========================================
+   Quotes and code blocks
+   ========================================= */
+
+.bbc_quote {
+  background: var(--jtm-soft);
+  border: 1px solid var(--jtm-border);
+  border-left: 3px solid #b69477;
+  color: var(--jtm-ink);
+}
+
+.bbc_standard_quote,
+.bbc_alternate_quote {
+  background: var(--jtm-soft);
+}
+
+.quoteheader,
+.codeheader {
+  color: var(--jtm-muted);
+}
+
+.bbc_code {
+  background: #f5eee3;
+  border-color: var(--jtm-border);
+  color: var(--jtm-ink);
+}
+
+.bbc_link {
+  border-color: var(--jtm-orange);
+}
+
+/* =========================================
+   Mafia plugin presentation hooks
+
+   These are reserved for the plugin.
+   No game logic is implemented here.
+   ========================================= */
+
+/* Rendered [vote]Player[/vote] */
+
+.jtm-vote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.65rem;
+
+  border: 1px solid #e9be9f;
+  border-radius: 4px;
+
+  background: #fce8dc;
+  color: #943f1d;
+  font-weight: 700;
+}
+
+.jtm-vote::before {
+  content: "✓";
+  font-weight: 700;
+}
+
+/* Vote Bot count */
+
+.jtm-vote-count {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--jtm-border);
+  border-left: 4px solid var(--jtm-orange);
+  background: var(--jtm-soft);
+}
+
+/* GM announcements */
+
+.jtm-gm-notice {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--jtm-border);
+  border-left: 4px solid var(--jtm-brown);
+  background: #f2e5d2;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+
+#footer_section {
+  background: var(--jtm-brown);
+  color: #f4dfc9;
+}
+
+#footer_section a {
+  color: #fff0dc;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+
+@media (max-width: 720px) {
+  #header .forumtitle a {
+    min-height: 75px;
+    padding-left: 74px;
+    background-size: 64px 64px;
+  }
+
+  #header .forumtitle {
+    font-size: 1.45rem;
+  }
+
+  #header .forumtitle a:has(img) {
+    padding-left: 0;
+  }
+
+  #forumposts .postarea .post {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

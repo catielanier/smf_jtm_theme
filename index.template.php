@@ -121,6 +121,9 @@ function template_html_above()
 	// load in any css from mods or themes so they can overwrite if wanted
 	template_css();
 
+	echo '
+	<link rel="stylesheet" href="', $settings['theme_url'], '/css/jtm.css?v=1'>';
+
 	// load in any javascript files from mods and themes
 	template_javascript();
 
@@ -143,7 +146,7 @@ function template_html_above()
 	/*	What is your Lollipop's color?
 		Theme Authors, you can change the color here to make sure your theme's main color gets visible on tab */
 	echo '
-	<meta name="theme-color" content="#557EA0">';
+	<meta name="theme-color" content="#542719">';
 
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))
