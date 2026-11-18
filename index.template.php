@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Simple Machines Forum (SMF)
  *
@@ -122,7 +123,7 @@ function template_html_above()
 	template_css();
 
 	echo '
-	<link rel="stylesheet" href="', $settings['theme_url'], '/css/jtm.css?v=1'>';
+    <link rel="stylesheet" href="', $settings['theme_url'], '/css/jtm.css?v=1">';
 
 	// load in any javascript files from mods and themes
 	template_javascript();
@@ -132,8 +133,7 @@ function template_html_above()
 	<meta name="viewport" content="width=device-width, initial-scale=1">';
 
 	// Content related meta tags, like description, keywords, Open Graph stuff, etc...
-	foreach ($context['meta_tags'] as $meta_tag)
-	{
+	foreach ($context['meta_tags'] as $meta_tag) {
 		echo '
 	<meta';
 
@@ -207,8 +207,7 @@ function template_body_above()
 		<div class="inner_wrap">';
 
 	// If the user is logged in, display some things that might be useful.
-	if ($context['user']['is_logged'])
-	{
+	if ($context['user']['is_logged']) {
 		// Firstly, the user's menu
 		echo '
 			<ul class="floatleft" id="top_info">
@@ -258,25 +257,21 @@ function template_body_above()
 			</ul>';
 	}
 	// Otherwise they're a guest. Ask them to either register or login.
-	elseif (empty($maintenance))
-	{
+	elseif (empty($maintenance)) {
 		// Some people like to do things the old-fashioned way.
-		if (!empty($settings['login_main_menu']))
-		{
+		if (!empty($settings['login_main_menu'])) {
 			echo '
 			<ul class="floatleft">
 				<li class="welcome">', sprintf($txt[$context['can_register'] ? 'welcome_guest_register' : 'welcome_guest'], $context['forum_name_html_safe'], $scripturl . '?action=login', 'return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');', $scripturl . '?action=signup'), '</li>
 			</ul>';
-		}
-		else
-		{
+		} else {
 			echo '
 			<ul class="floatleft" id="top_info">
 				<li class="welcome">
 					', sprintf($txt['welcome_to_forum'], $context['forum_name_html_safe']), '
 				</li>
 				<li class="button_login">
-					<a href="', $scripturl, '?action=login" class="', $context['current_action'] == 'login' ? 'active' : 'open','" onclick="return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');">
+					<a href="', $scripturl, '?action=login" class="', $context['current_action'] == 'login' ? 'active' : 'open', '" onclick="return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');">
 						<span class="main_icons login"></span>
 						<span class="textmenu">', $txt['login'], '</span>
 					</a>
@@ -285,7 +280,7 @@ function template_body_above()
 			if ($context['can_register'])
 				echo '
 				<li class="button_signup">
-					<a href="', $scripturl, '?action=signup" class="', $context['current_action'] == 'signup' ? 'active' : 'open','">
+					<a href="', $scripturl, '?action=signup" class="', $context['current_action'] == 'signup' ? 'active' : 'open', '">
 						<span class="main_icons regcenter"></span>
 						<span class="textmenu">', $txt['register'], '</span>
 					</a>
@@ -294,16 +289,14 @@ function template_body_above()
 			echo '
 			</ul>';
 		}
-	}
-	else
+	} else
 		// In maintenance mode, only login is allowed and don't show OverlayDiv
 		echo '
 			<ul class="floatleft welcome">
 				<li>', sprintf($txt['welcome_guest'], $context['forum_name_html_safe'], $scripturl . '?action=login', 'return true;'), '</li>
 			</ul>';
 
-	if (!empty($modSettings['userLanguage']) && !empty($context['languages']) && count($context['languages']) > 1)
-	{
+	if (!empty($modSettings['userLanguage']) && !empty($context['languages']) && count($context['languages']) > 1) {
 		echo '
 			<form id="languages_form" method="get" class="floatright">
 				<select id="language_select" name="language" onchange="this.form.submit()">';
@@ -320,8 +313,7 @@ function template_body_above()
 			</form>';
 	}
 
-	if ($context['allow_search'])
-	{
+	if ($context['allow_search']) {
 		echo '
 			<form id="search_form" class="floatright" action="', $scripturl, '?action=search2" method="post" accept-charset="', $context['character_set'], '">
 				<input type="search" name="search" value="">&nbsp;';
@@ -477,7 +469,6 @@ function template_body_below()
 	echo '
 		</div>
 	</div><!-- #footer -->';
-
 }
 
 /**
@@ -511,8 +502,7 @@ function theme_linktree($force_show = false)
 					<ul>';
 
 	// Each tree item has a URL and name. Some may have extra_before and extra_after.
-	foreach ($context['linktree'] as $link_num => $tree)
-	{
+	foreach ($context['linktree'] as $link_num => $tree) {
 		echo '
 						<li', ($link_num == count($context['linktree']) - 1) ? ' class="last"' : '', '>';
 
@@ -561,8 +551,7 @@ function template_menu()
 					<ul class="dropmenu menu_nav">';
 
 	// Note: Menu markup has been cleaned up to remove unnecessary spans and classes.
-	foreach ($context['menu_buttons'] as $act => $button)
-	{
+	foreach ($context['menu_buttons'] as $act => $button) {
 		echo '
 						<li class="button_', $act, '', !empty($button['sub_buttons']) ? ' subsections"' : '"', '>
 							<a', $button['active_button'] ? ' class="active"' : '', ' href="', $button['href'], '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', isset($button['onclick']) ? ' onclick="' . $button['onclick'] . '"' : '', '>
@@ -570,21 +559,18 @@ function template_menu()
 							</a>';
 
 		// 2nd level menus
-		if (!empty($button['sub_buttons']))
-		{
+		if (!empty($button['sub_buttons'])) {
 			echo '
 							<ul>';
 
-			foreach ($button['sub_buttons'] as $childbutton)
-			{
+			foreach ($button['sub_buttons'] as $childbutton) {
 				echo '
 								<li', !empty($childbutton['sub_buttons']) ? ' class="subsections"' : '', '>
 									<a href="', $childbutton['href'], '"', isset($childbutton['target']) ? ' target="' . $childbutton['target'] . '"' : '', isset($childbutton['onclick']) ? ' onclick="' . $childbutton['onclick'] . '"' : '', '>
 										', $childbutton['title'], !empty($childbutton['amt']) ? ' <span class="amt">' . $childbutton['amt'] . '</span>' : '', '
 									</a>';
 				// 3rd level menus :)
-				if (!empty($childbutton['sub_buttons']))
-				{
+				if (!empty($childbutton['sub_buttons'])) {
 					echo '
 									<ul>';
 
@@ -630,25 +616,21 @@ function template_button_strip($button_strip, $direction = '', $strip_options = 
 
 	// Create the buttons...
 	$buttons = array();
-	foreach ($button_strip as $key => $value)
-	{
+	foreach ($button_strip as $key => $value) {
 		// As of 2.1, the 'test' for each button happens while the array is being generated. The extra 'test' check here is deprecated but kept for backward compatibility (update your mods, folks!)
-		if (!isset($value['test']) || !empty($context[$value['test']]))
-		{
+		if (!isset($value['test']) || !empty($context[$value['test']])) {
 			if (!isset($value['id']))
 				$value['id'] = $key;
 
 			$button = '
-				<a class="button button_strip_' . $key . (!empty($value['active']) ? ' active' : '') . (isset($value['class']) ? ' ' . $value['class'] : '') . '" ' . (!empty($value['url']) ? 'href="' . $value['url'] . '"' : '') . ' ' . (isset($value['custom']) ? ' ' . $value['custom'] : '') . '>'.(!empty($value['icon']) ? '<span class="main_icons '.$value['icon'].'"></span>' : '').'' . $txt[$value['text']] . '</a>';
+				<a class="button button_strip_' . $key . (!empty($value['active']) ? ' active' : '') . (isset($value['class']) ? ' ' . $value['class'] : '') . '" ' . (!empty($value['url']) ? 'href="' . $value['url'] . '"' : '') . ' ' . (isset($value['custom']) ? ' ' . $value['custom'] : '') . '>' . (!empty($value['icon']) ? '<span class="main_icons ' . $value['icon'] . '"></span>' : '') . '' . $txt[$value['text']] . '</a>';
 
-			if (!empty($value['sub_buttons']))
-			{
+			if (!empty($value['sub_buttons'])) {
 				$button .= '
 					<div class="top_menu dropmenu ' . $key . '_dropdown">
 						<div class="viewport">
 							<div class="overview">';
-				foreach ($value['sub_buttons'] as $element)
-				{
+				foreach ($value['sub_buttons'] as $element) {
 					if (isset($element['test']) && empty($context[$element['test']]))
 						continue;
 
@@ -695,11 +677,9 @@ function template_quickbuttons($list_items, $list_class = null, $output_method =
 		call_integration_hook('integrate_' . $list_class . '_quickbuttons', array(&$list_items));
 
 	// Make sure the list has at least one shown item
-	foreach ($list_items as $key => $li)
-	{
+	foreach ($list_items as $key => $li) {
 		// Is there a sublist, and does it have any shown items
-		if ($key == 'more')
-		{
+		if ($key == 'more') {
 			foreach ($li as $subkey => $subli)
 				if (isset($subli['show']) && !$subli['show'])
 					unset($list_items[$key][$subkey]);
@@ -721,8 +701,7 @@ function template_quickbuttons($list_items, $list_class = null, $output_method =
 		<ul class="quickbuttons' . (!empty($list_class) ? ' quickbuttons_' . $list_class : '') . '">';
 
 	// This is used for a list item or a sublist item
-	$list_item_format = function($li)
-	{
+	$list_item_format = function ($li) {
 		$html = '
 			<li' . (!empty($li['class']) ? ' class="' . $li['class'] . '"' : '') . (!empty($li['id']) ? ' id="' . $li['id'] . '"' : '') . (!empty($li['custom']) ? ' ' . $li['custom'] : '') . '>';
 
@@ -740,11 +719,9 @@ function template_quickbuttons($list_items, $list_class = null, $output_method =
 		return $html;
 	};
 
-	foreach ($list_items as $key => $li)
-	{
+	foreach ($list_items as $key => $li) {
 		// Handle the sublist
-		if ($key == 'more')
-		{
+		if ($key == 'more') {
 			$output .= '
 			<li class="post_options">
 				<a href="javascript:void(0);">' . $txt['post_options'] . '</a>
@@ -795,9 +772,4 @@ function template_maint_warning_above()
 /**
  * The lower part of the maintenance warning box.
  */
-function template_maint_warning_below()
-{
-
-}
-
-?>
+function template_maint_warning_below() {}
